@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour
 {
     public GameObject ball;
+    public float spawnTime;
     private float timer;
 
     void Start() {
