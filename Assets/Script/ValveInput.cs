@@ -15,15 +15,9 @@ public class ValveInput : MonoBehaviour
     {
 
         if (SteamVR_Actions.default_DropBall.changed && hold)
-        {
             hold = false;
-            print("drop");
-        }
         else if (SteamVR_Actions.default_DropBall.changed)
-        {
             hold = true;
-
-        }
         if ((SteamVR_Actions.default_DropBall.changed || hold))
             AppearBall();
 
@@ -33,7 +27,6 @@ public class ValveInput : MonoBehaviour
 
     void AppearBall()
     {
-        print("oui");
         ball.transform.position = Lefthand.position;
         ball.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         counter = 0;
