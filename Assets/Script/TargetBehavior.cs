@@ -5,6 +5,7 @@ using UnityEngine;
 public class TargetBehavior : MonoBehaviour
 {
     private int score = 0;
+    private Vector3 dir = new Vector3(1, 0, 0);
     void Start()
     {
         
@@ -12,17 +13,27 @@ public class TargetBehavior : MonoBehaviour
 
     void Update()
     {
-        
+        if (score >= 3)
+            targetMovement();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        print(collision.collider.tag);
+
         if (collision.collider.CompareTag("projectile"))
         {
             ScoreManager.scoreValue += 1;
             score++;
-            print(score);
-
         }
+
+    }
+
+    private void targetMovement()
+    {
+        if (transform.position.x <= -1.5 || transform.position.x >= 1.5)
+            dir = -dir;
+
+        transform.position = transform.position + (dir * Time.deltaTime);
     }
 }
