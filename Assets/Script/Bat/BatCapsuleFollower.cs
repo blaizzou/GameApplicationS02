@@ -2,6 +2,8 @@
 
 public class BatCapsuleFollower : MonoBehaviour
 {
+    public ParticleSystem NovaExp;
+
     private BatCapsule _batFollower;
 	private Rigidbody _rigidbody;
 	private Vector3 _velocity;
@@ -29,4 +31,19 @@ public class BatCapsuleFollower : MonoBehaviour
 	{
 		_batFollower = batFollower;
 	}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        print(collision.collider.tag);
+
+        if (collision.collider.tag == "projectile")
+        {
+            NovaExp.Stop();
+            NovaExp.time = 0;
+            NovaExp.Play(true);
+            if (NovaExp.isPaused)
+                print("oui c du kaka");
+
+        }
+    }
 }

@@ -19,7 +19,6 @@ public class TargetBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        print(collision.collider.tag);
 
         if (collision.collider.CompareTag("projectile"))
         {
