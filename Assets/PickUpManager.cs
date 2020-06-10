@@ -12,6 +12,10 @@ public class PickUpManager : MonoBehaviour
     }
 
     public PickUpType Type;
+    public GameObject Shield;
+
+    private Transform shielPos;
+
     void Start()
     {
         
@@ -28,8 +32,22 @@ public class PickUpManager : MonoBehaviour
         if (collider.tag == "projectile")
         {
             collider.GetComponent<BallManager>().player_1.GetComponent<PlayerState>().PickUp(Type);
-            DestroyPickUp();
+            if (Type == PickUpType.Shield)
+                CreateShield();
+            else
+                DestroyPickUp();
         }
+    }
+
+    private void CreateShield()
+    {
+
+        /*        shielPos.position = transform.position;
+                shielPos.position = new Vector3(shielPos.position.x, 2, shielPos.position.y);
+                Instantiate(Shield, shielPos);*/
+
+        Shield.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void DestroyPickUp()

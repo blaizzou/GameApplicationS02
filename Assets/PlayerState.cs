@@ -34,7 +34,7 @@ public class PlayerState : MonoBehaviour
             time -= Time.deltaTime;
             if (stateGreenPU && time <= 0)
             {
-                Bat.transform.localScale /= 2;
+                Bat.transform.localScale /= 1.5f;
             }
         }
     }
@@ -42,21 +42,23 @@ public class PlayerState : MonoBehaviour
     private void IncreaseSize()
     {
         print("size should increase");
-        Bat.transform.localScale *= 2;
+        Bat.transform.localScale *= 1.5f;
         time = powerUpTimeLapse;
         stateGreenPU = true;
     }
 
     public void PickUp(PickUpManager.PickUpType type)
     {
-        print("boost anim played");
         if (type == PickUpManager.PickUpType.Bigger)
         {
             IncreaseSize();
             BoostGreen.Play();
         }
         if (type == PickUpManager.PickUpType.Shield)
+        {
             BoostBlue.Play();
+
+        }
         if (type == PickUpManager.PickUpType.Speed)
             BoostYellow.Play();
     }
