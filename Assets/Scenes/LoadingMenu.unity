@@ -918,7 +918,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press the space bar to continue
+  m_Text: 'Press the space bar to continue
+
+    (Waiting for the other player ?)'
 --- !u!222 &1118721806
 CanvasRenderer:
   m_ObjectHideFlags: 0
