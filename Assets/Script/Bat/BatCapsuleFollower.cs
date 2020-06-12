@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Photon.Pun;
 
 public class BatCapsuleFollower : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class BatCapsuleFollower : MonoBehaviour
 
 	[SerializeField]
 	private float _sensitivity = 100f;
+	private PhotonView PV;
 
 	private void Awake()
 	{
@@ -38,6 +40,8 @@ public class BatCapsuleFollower : MonoBehaviour
 
         if (collision.collider.tag == "projectile")
         {
+			if (transform.parent.GetComponent<PhotonView>().IsMine)
+                collision.gameObject.GetComponent<PhotonView>().RequestOwnership();
             NovaExp.Stop();
             NovaExp.time = 0;
             NovaExp.Play(true);
