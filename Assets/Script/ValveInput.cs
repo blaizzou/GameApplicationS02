@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using Photon.Pun;
 
 public class ValveInput : MonoBehaviour
 {
@@ -11,9 +12,12 @@ public class ValveInput : MonoBehaviour
     private int maxCounter = 50;
     private int counter;
     private bool hold = false;
-    
+    private PhotonView PV;
+
     private void Start()
     {
+        if (!PV.IsMine && PhotonNetwork.IsConnected)
+            this.enabled = false;
         ball = GameObject.FindGameObjectWithTag("projectile");
         Lefthand = GameObject.FindGameObjectWithTag("LeftHand");
     }
