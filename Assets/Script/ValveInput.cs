@@ -2,15 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using Photon.Pun;
 
 public class ValveInput : MonoBehaviour
 {
-    public GameObject ball;
-    public Transform Lefthand;
+    private GameObject ball;
+    private GameObject Lefthand;
 
     private int maxCounter = 50;
     private int counter;
     private bool hold = false;
+    private PhotonView PV;
+
+    private void Start()
+    {
+        if (!PV.IsMine && PhotonNetwork.IsConnected)
+            this.enabled = false;
+        ball = GameObject.FindGameObjectWithTag("projectile");
+        Lefthand = GameObject.FindGameObjectWithTag("LeftHand");
+    }
     void Update()
     {
 
@@ -27,7 +37,7 @@ public class ValveInput : MonoBehaviour
 
     void AppearBall()
     {
-        ball.transform.position = Lefthand.position;
+        ball.transform.position = Lefthand.transform.position;
         ball.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         counter = 0;
     }

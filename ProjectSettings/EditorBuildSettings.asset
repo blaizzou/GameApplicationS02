@@ -14,4 +14,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TargetPractice.unity
     guid: 1c0af06f32d675a439e7fa759131bfe6
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/Hangar.unity
+    guid: 945820b663c87d74ca4f60a9fa16398a
+  - enabled: 1
+    path: Assets/Scenes/Cantina.unity
+    guid: cd8dee39f02cde241a5be763fa5d10b6
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 63f200b906557a54f98ef48079d8a1e8,
+      type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: acb18104412ca49478ee556f200fa767,
+      type: 2}

@@ -19,15 +19,15 @@ public class GameSetupController : MonoBehaviour
 
     void Start()
     {
-
         CreatePlayer();
     }
 
     private void CreatePlayer()
     {
-        Debug.Log("creating Player");
+        if (PhotonNetwork.CountOfPlayers <= 1)
+            PhotonNetwork.OfflineMode = true;
         int spawnPicker = Random.Range(0, GameSetupController.GS.spawnPoints.Length);
         GameObject player = PhotonNetwork.Instantiate(Path.Combine("photonPrefabs", "Player"),
-        GameSetupController.GS.spawnPoints[spawnPicker].position, Quaternion.identity);
+        GameSetupController.GS.spawnPoints[spawnPicker].position, GameSetupController.GS.spawnPoints[spawnPicker].rotation);
     }
 }
