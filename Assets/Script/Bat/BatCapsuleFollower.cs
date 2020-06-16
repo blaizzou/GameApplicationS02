@@ -45,9 +45,7 @@ public class BatCapsuleFollower : MonoBehaviour
             NovaExp.Stop();
             NovaExp.time = 0;
             NovaExp.Play(true);
-            if (NovaExp.isPaused)
-                print("oui c du kaka");
-
+            collision.collider.GetComponent<BallManager>().changeActivePlayer(transform);
         }
     }
 }

@@ -261,6 +261,11 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1515972377776078142, guid: cb1da5dd4046a164b8963d88cf929c40,
+        type: 3}
+      propertyPath: viewIdField
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1742780239389155111, guid: cb1da5dd4046a164b8963d88cf929c40,
         type: 3}
       propertyPath: viewIdField
@@ -330,6 +335,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201154254386214467, guid: cb1da5dd4046a164b8963d88cf929c40,
+        type: 3}
+      propertyPath: viewIdField
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5885680611925162912, guid: cb1da5dd4046a164b8963d88cf929c40,
         type: 3}
