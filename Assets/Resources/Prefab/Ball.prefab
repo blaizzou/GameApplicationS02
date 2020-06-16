@@ -234,6 +234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013e62a6916c5204ebfaabad5c3336cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: []
+  activePlayer: {fileID: 0}
+  maxVelo: 10
 --- !u!1001 &7517980515555688544
 PrefabInstance:
   m_ObjectHideFlags: 0
