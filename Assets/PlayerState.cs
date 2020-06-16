@@ -30,7 +30,6 @@ public class PlayerState : MonoBehaviour
     {
         if (time > 0)
         {
-            print(time);
             time -= Time.deltaTime;
             if (stateGreenPU && time <= 0)
             {
@@ -41,7 +40,6 @@ public class PlayerState : MonoBehaviour
 
     private void IncreaseSize()
     {
-        print("size should increase");
         Bat.transform.localScale *= 1.5f;
         time = powerUpTimeLapse;
         stateGreenPU = true;
@@ -57,9 +55,11 @@ public class PlayerState : MonoBehaviour
         if (type == PickUpManager.PickUpType.Shield)
         {
             BoostBlue.Play();
-
         }
         if (type == PickUpManager.PickUpType.Speed)
+        {
             BoostYellow.Play();
+
+        }
     }
 }

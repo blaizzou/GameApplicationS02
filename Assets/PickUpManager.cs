@@ -14,11 +14,10 @@ public class PickUpManager : MonoBehaviour
     public PickUpType Type;
     public GameObject Shield;
 
-    private Transform shielPos;
+    private Transform shieldPos;
 
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -31,7 +30,7 @@ public class PickUpManager : MonoBehaviour
     {
         if (collider.tag == "projectile")
         {
-            collider.GetComponent<BallManager>().player_1.GetComponent<PlayerState>().PickUp(Type);
+            collider.GetComponent<BallManager>().activePlayer.GetComponent<PlayerState>().PickUp(Type);
             if (Type == PickUpType.Shield)
                 CreateShield();
             else
@@ -45,8 +44,10 @@ public class PickUpManager : MonoBehaviour
         /*        shielPos.position = transform.position;
                 shielPos.position = new Vector3(shielPos.position.x, 2, shielPos.position.y);
                 Instantiate(Shield, shielPos);*/
+        shieldPos = GameObject.FindGameObjectWithTag("ShieldSpawn").transform;
 
         Shield.SetActive(true);
+        Shield.transform.position = shieldPos.position;
         gameObject.SetActive(false);
     }
 
