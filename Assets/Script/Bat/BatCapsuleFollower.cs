@@ -15,7 +15,8 @@ public class BatCapsuleFollower : MonoBehaviour
 
 	private void Awake()
 	{
-		_rigidbody = GetComponent<Rigidbody>();
+        PV = transform.GetComponent<PhotonView>();
+        _rigidbody = GetComponent<Rigidbody>();
 	}
 
 	private void FixedUpdate()
@@ -40,7 +41,7 @@ public class BatCapsuleFollower : MonoBehaviour
 
         if (collision.collider.tag == "projectile")
         {
-			if (transform.parent.GetComponent<PhotonView>().IsMine)
+			if (PV.IsMine)
                 collision.gameObject.GetComponent<PhotonView>().RequestOwnership();
             NovaExp.Stop();
             NovaExp.time = 0;

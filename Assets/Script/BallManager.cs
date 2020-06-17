@@ -25,7 +25,6 @@ public class BallManager : MonoBehaviour
 
     void Update()
     {
-        print(rb.velocity);
         timerVeloCap -= Time.deltaTime;
         if (timerVeloCap < 0)
         {

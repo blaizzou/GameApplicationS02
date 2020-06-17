@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8063337997809238472}
   - component: {fileID: 6083278417145492351}
   - component: {fileID: 2800495878103753546}
+  - component: {fileID: 3725108992435999237}
   m_Layer: 8
   m_Name: Capsule follower
   m_TagString: Untagged
@@ -121,7 +122,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6385573911605604631}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c11dafb9079ff6b44aa6cb80f954e0af, type: 3}
   m_Name: 
@@ -140,6 +141,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 1.9999999, z: 1.0000001}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3725108992435999237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6385573911605604631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &5499616839346686919
 PrefabInstance:
   m_ObjectHideFlags: 0

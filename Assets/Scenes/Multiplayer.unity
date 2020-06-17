@@ -361,6 +361,11 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 9172298938564671311, guid: cb1da5dd4046a164b8963d88cf929c40,
+        type: 3}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb1da5dd4046a164b8963d88cf929c40, type: 3}
 --- !u!1001 &406833207
@@ -611,6 +616,11 @@ PrefabInstance:
         type: 3}
       propertyPath: viewIdField
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657066672510160781, guid: 8c6294ef7bf849b409ebba02b2f82d12,
+        type: 3}
+      propertyPath: viewIdField
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c6294ef7bf849b409ebba02b2f82d12, type: 3}
@@ -943,7 +953,7 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: dd5b88e9702710140a0e0d7afdd99c1c, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -1107,6 +1117,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

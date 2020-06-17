@@ -28,6 +28,7 @@ public class PickUpManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+        print("ball collide");
         if (collider.tag == "projectile")
         {
             collider.GetComponent<BallManager>().activePlayer.GetComponent<PlayerState>().PickUp(Type);
