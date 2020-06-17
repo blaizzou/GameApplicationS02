@@ -16,25 +16,23 @@ public class ValveInput : MonoBehaviour {
     private int counter;
     private bool hold = false;
     private PhotonView PV;
-    private void Start () {
 
-    private void Start()
-    {
-        PV = transform.GetComponent<PhotonView>();
-       /* if (!PV.IsMine && PhotonNetwork.IsConnected)
-            this.enabled = false;*/
-        ball = GameObject.FindGameObjectWithTag("projectile");
-        Lefthand = GameObject.FindGameObjectWithTag("LeftHand");
+    void Start () {
+        PV = transform.GetComponent<PhotonView> ();
+        /* if (!PV.IsMine && PhotonNetwork.IsConnected)
+             this.enabled = false;*/
+        ball = GameObject.FindGameObjectWithTag ("projectile");
+        Lefthand = GameObject.FindGameObjectWithTag ("LeftHand");
     }
     void Update () {
         tmp++;
-        Debug.Log(tmp);
-        if ( tmp >= 500) {
+        Debug.Log (tmp);
+        if (tmp >= 500) {
             tmp = 0;
             if (UI)
-                FadeIn();
+                FadeIn ();
             else
-                FadeOut();
+                FadeOut ();
             UI = !UI;
         }
         if (SteamVR_Actions.default_DropBall.changed && hold)
@@ -82,6 +80,6 @@ public class ValveInput : MonoBehaviour {
         }
 
         print ("done");
-    }
 
+    }
 }
