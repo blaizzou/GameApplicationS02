@@ -966,6 +966,11 @@ PrefabInstance:
       propertyPath: ball
       value: 
       objectReference: {fileID: 1202227685}
+    - target: {fileID: 1385996565749529659, guid: cb1da5dd4046a164b8963d88cf929c40,
+        type: 3}
+      propertyPath: viewIdField
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1742780239389155111, guid: cb1da5dd4046a164b8963d88cf929c40,
         type: 3}
       propertyPath: viewIdField
@@ -1055,6 +1060,11 @@ PrefabInstance:
         type: 3}
       propertyPath: viewIdField
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964671611832537713, guid: cb1da5dd4046a164b8963d88cf929c40,
+        type: 3}
+      propertyPath: viewIdField
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8271485511796473136, guid: cb1da5dd4046a164b8963d88cf929c40,
         type: 3}

@@ -16,8 +16,9 @@ public class ValveInput : MonoBehaviour
 
     private void Start()
     {
-        if (!PV.IsMine && PhotonNetwork.IsConnected)
-            this.enabled = false;
+        PV = transform.GetComponent<PhotonView>();
+       /* if (!PV.IsMine && PhotonNetwork.IsConnected)
+            this.enabled = false;*/
         ball = GameObject.FindGameObjectWithTag("projectile");
         Lefthand = GameObject.FindGameObjectWithTag("LeftHand");
     }
