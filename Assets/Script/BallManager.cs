@@ -7,7 +7,7 @@ public class BallManager : MonoBehaviour
     public GameObject[] players;
     public GameObject activePlayer;
     public float maxVelo;
-    private bool[] limited = { true, true };
+    private float[] limited = { 0, 0 };
 
     private float lapseVeloCap = 0.2f;
     private float timerVeloCap = 0;
@@ -19,22 +19,26 @@ public class BallManager : MonoBehaviour
         players = GameObject.FindGameObjectsWithTag("Player");
         if (players.Length == 1)
             activePlayer = players[0];
-        print(players.Length);
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+        print(limited[0]);
+        UnlimitedTimer();
         timerVeloCap -= Time.deltaTime;
         if (timerVeloCap < 0)
         {
-            capVelocity();
+            print(IsActive(players[0].transform) && limited[0] <= 0 );
+            //|| (players.Length == 2 && (IsActive(players[1].transform) && limited[1] <= 0))
+            if ((IsActive(players[0].transform) && limited[0] <= 0) )
+                capVelocity();
         }
-
     }
 
     void capVelocity()
     {
+        //print(rb.velocity);
         Vector3 newVelo = rb.velocity;
         if (rb.velocity.x > maxVelo)
             newVelo.x -= looseVelo;
@@ -67,4 +71,37 @@ public class BallManager : MonoBehaviour
         }
     }
 
+    public void setUnlimitedVelo(float time)
+    {
+        if (IsActive(players[0].transform))
+        {
+            print("set timer");
+
+            limited[0] = time;
+        } else if (IsActive(players[1].transform))
+        {
+            limited[1] = time;
+        }
+    }
+
+    bool IsActive(Transform check)
+    {
+        if (check == activePlayer.transform)
+            return true;
+        return false;
+    }
+
+    void UnlimitedTimer()
+    {
+        
+        for (int i = 0; i < players.Length; i++)
+        {
+            if ((IsActive(players[i].transform) && limited[i] > 0))
+            {
+                print("oui");
+                print(limited[i]);
+                limited[i] -= Time.deltaTime;
+            }
+        }
+    }
 }

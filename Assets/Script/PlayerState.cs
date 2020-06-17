@@ -10,6 +10,7 @@ public class PlayerState : MonoBehaviour
 
     public GameObject Bat;
 
+    private GameObject Ball;
     private float time = 0;
     private bool stateGreenPU;
 
@@ -19,6 +20,7 @@ public class PlayerState : MonoBehaviour
         BoostYellow.Stop();
         BoostGreen.Stop();
         BoostBlue.Stop();
+        Ball = GameObject.FindGameObjectWithTag("projectile");
     }
 
     void Update()
@@ -59,7 +61,7 @@ public class PlayerState : MonoBehaviour
         if (type == PickUpManager.PickUpType.Speed)
         {
             BoostYellow.Play();
-
+            Ball.GetComponent<BallManager>().setUnlimitedVelo(time);
         }
     }
 }
