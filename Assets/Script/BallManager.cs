@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class BallManager : MonoBehaviour
+public class BallManager : MonoBehaviour, IPunObservable
 {
     public GameObject[] players;
     public GameObject activePlayer;
@@ -31,6 +32,25 @@ public class BallManager : MonoBehaviour
             capVelocity();
         }
 
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(rb.position);
+            stream.SendNext(rb.rotation);
+            stream.SendNext(rb.velocity);
+        }
+        else
+        {
+            rb.position = (Vector3)stream.ReceiveNext();
+            rb.rotation = (Quaternion)stream.ReceiveNext();
+            rb.velocity = (Vector3)stream.ReceiveNext();
+
+            float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.timestamp));
+            rb.position += rb.velocity * lag;
+        }
     }
 
     void capVelocity()
