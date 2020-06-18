@@ -2630,6 +2630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39242100af0ed2d48b99e89575ad2a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiElement: {fileID: 0}
 --- !u!114 &1906599112687840299
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ public class TargetBehavior : MonoBehaviour
 {
     private int score = 0;
     private Vector3 dir = new Vector3(1, 0, 0);
+
+    public ParticleSystem bluePortal;
     void Start()
     {
         
@@ -24,6 +26,8 @@ public class TargetBehavior : MonoBehaviour
         {
             ScoreManager.scoreValue += 1;
             score++;
+            bluePortal.Stop();
+            bluePortal.Play();
         }
 
     }
