@@ -26,7 +26,7 @@ public class ValveInput : MonoBehaviour {
     }
     void Update () {
         tmp++;
-        Debug.Log (tmp);
+        // Debug.Log (tmp);
         if (tmp >= 500) {
             tmp = 0;
             if (UI)

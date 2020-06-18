@@ -1195,6 +1195,7 @@ GameObject:
   - component: {fileID: 4541579344585335741}
   - component: {fileID: 4509207352107347711}
   - component: {fileID: 4509207402261441527}
+  - component: {fileID: 5286604567864960856}
   - component: {fileID: 1385996565749529659}
   - component: {fileID: 6359421499606163933}
   m_Layer: 26
@@ -1238,7 +1239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e3e4511966ba94d8ba0b98c6c62f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherHand: {fileID: 4541579344585286435}
+  otherHand: {fileID: 4541579344585335741}
   handType: 2
   trackedObject: {fileID: 0}
   grabPinchAction:
@@ -1330,6 +1331,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967039
   hand: {fileID: 0}
+--- !u!114 &5286604567864960856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541579344596510655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb232682923a990489c7fb6423805246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 4541579344585335741}
+  handPhysics: {fileID: 4509207402261441527}
 --- !u!114 &1385996565749529659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1560,6 +1575,7 @@ GameObject:
   - component: {fileID: 4509207351859059665}
   - component: {fileID: 6964671611832537713}
   - component: {fileID: 7035684030700940375}
+  - component: {fileID: 4575905344659202813}
   m_Layer: 26
   m_Name: LeftHand
   m_TagString: LeftHand
@@ -1597,7 +1613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e3e4511966ba94d8ba0b98c6c62f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherHand: {fileID: 4541579344585335741}
+  otherHand: {fileID: 4541579344585286435}
   handType: 1
   trackedObject: {fileID: 0}
   grabPinchAction:
@@ -1726,6 +1742,20 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!114 &4575905344659202813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541579344596526989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb232682923a990489c7fb6423805246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 4541579344585286435}
+  handPhysics: {fileID: 4509207351859059665}
 --- !u!1 &4541579344596547863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3192,15 +3222,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c64c3816375a6488182d90a3d873da, type: 3}
---- !u!4 &7879206202320544255 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4107055193733026, guid: e0c64c3816375a6488182d90a3d873da,
-    type: 3}
-  m_PrefabInstance: {fileID: 7878492380020332125}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &8040862727278176887 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198410307320937514, guid: e0c64c3816375a6488182d90a3d873da,
+    type: 3}
+  m_PrefabInstance: {fileID: 7878492380020332125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7879206202320544255 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4107055193733026, guid: e0c64c3816375a6488182d90a3d873da,
     type: 3}
   m_PrefabInstance: {fileID: 7878492380020332125}
   m_PrefabAsset: {fileID: 0}
