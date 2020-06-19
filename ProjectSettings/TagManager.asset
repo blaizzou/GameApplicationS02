@@ -11,6 +11,9 @@ TagManager:
   - Bat
   - ShieldSpawn
   - Target
+  - BackWall
+  - Undefined
+  - Score
   layers:
   - Default
   - TransparentFX
