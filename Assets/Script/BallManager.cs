@@ -8,7 +8,10 @@ public class BallManager : MonoBehaviour
     public GameObject activePlayer;
     public ParticleSystem contactAnim;
     public float maxVelo;
+    private bool active = true;
+
     private bool[] limited = { true, true };
+    private int combo = 0;
 
     private float lapseVeloCap = 0.2f;
     private float timerVeloCap = 0;
@@ -72,10 +75,16 @@ public class BallManager : MonoBehaviour
     { 
         if (isVeloSuperiorTo(maxVelo - 1))
             contactAnim.Play();
+        if (collision.collider.CompareTag("WallBack"))
+        {
+            active = false;
+            combo = 0;
+        }
     }
 
     public void changeActivePlayer(Transform newPlayer)
     {
+        active = true;
         timerVeloCap = lapseVeloCap;
         if (players.Length > 1)
         {
@@ -87,4 +96,18 @@ public class BallManager : MonoBehaviour
         }
     }
 
+    public bool isActive()
+    {
+        return active;
+    }
+
+    public int getCombo()
+    {
+        return combo;
+    }
+
+    public void increaseCombo()
+    {
+        combo++;
+    }
 }

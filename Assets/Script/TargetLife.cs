@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TargetLife : MonoBehaviour
 {
-    private int score = 0;
     private Vector3 dir = new Vector3(1, 0, 0);
 
     public ParticleSystem bluePortal;
@@ -13,6 +12,7 @@ public class TargetLife : MonoBehaviour
     public ParticleSystem redPortal;
     private int lifeTarget = 4;
     private GameObject scoreMaster;
+    private int score = 0;
     void Start()
     {
         yellowPortal.Stop();
@@ -24,32 +24,32 @@ public class TargetLife : MonoBehaviour
 
     void Update()
     {
-        if (score >= (lifeTarget * 2))
-            targetMovement();
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("projectile"))
+        if (collision.collider.CompareTag("projectile") && collision.gameObject.GetComponent<BallManager>().isActive())
         {
-            ScoreManager.scoreValue += 1;
+            ScoreManager.scoreValue += 1 + collision.gameObject.GetComponent<BallManager>().getCombo();
+            collision.gameObject.GetComponent<BallManager>().increaseCombo();
             score++;
-            if (ScoreManager.scoreValue % lifeTarget == 1)
+            if (score == 1)
             {
                 bluePortal.Stop();
                 yellowPortal.Play();
             }
-            else if (ScoreManager.scoreValue % lifeTarget == 2)
+            else if (score == 2)
             {
                 yellowPortal.Stop();
                 orangePortal.Play();
             }
-            else if (ScoreManager.scoreValue % lifeTarget == 3)
+            else if (score == 3)
             {
                 orangePortal.Stop();
                 redPortal.Play();
             }
-            else if (ScoreManager.scoreValue % lifeTarget == 0)
+            else if (score == 4)
             {
                 redPortal.Stop();
                 bluePortal.Play();
@@ -59,11 +59,11 @@ public class TargetLife : MonoBehaviour
 
     }
 
-    private void targetMovement()
+/*    private void targetMovement()
     {
         if (transform.position.x <= -1.5 || transform.position.x >= 1.5)
             dir = -dir;
 
         transform.position = transform.position + (dir * Time.deltaTime);
-    }
+    }*/
 }
