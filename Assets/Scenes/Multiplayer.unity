@@ -361,6 +361,11 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 9172298938564671311, guid: cb1da5dd4046a164b8963d88cf929c40,
+        type: 3}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb1da5dd4046a164b8963d88cf929c40, type: 3}
 --- !u!1001 &406833207
@@ -612,8 +617,41 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7657066672510160781, guid: 8c6294ef7bf849b409ebba02b2f82d12,
+        type: 3}
+      propertyPath: ObservedComponents.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657066672510160781, guid: 8c6294ef7bf849b409ebba02b2f82d12,
+        type: 3}
+      propertyPath: viewIdField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657066672510160781, guid: 8c6294ef7bf849b409ebba02b2f82d12,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 579581862}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c6294ef7bf849b409ebba02b2f82d12, type: 3}
+--- !u!1 &579581861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3974905079839023525, guid: 8c6294ef7bf849b409ebba02b2f82d12,
+    type: 3}
+  m_PrefabInstance: {fileID: 579581860}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &579581862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579581861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e71ccfa56ef0d4bb3455e2cd797b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &782664720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,6 +1056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1363556190}
   - component: {fileID: 1363556189}
+  - component: {fileID: 1363556191}
   m_Layer: 0
   m_Name: GameSetup
   m_TagString: Untagged
@@ -1054,6 +1093,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1363556191
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363556188}
+  m_Enabled: 0
 --- !u!1 &1417182562
 GameObject:
   m_ObjectHideFlags: 0

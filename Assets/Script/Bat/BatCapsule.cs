@@ -10,7 +10,7 @@ public class BatCapsule : MonoBehaviour
     private void SpawnBatCapsuleFollower()
     {
         var follower = Instantiate(_batCapsuleFollowerPrefab);
-        follower.transform.parent = transform.parent;
+        //follower.transform.parent = transform.parent;
         follower.transform.position = transform.position;
         follower.SetFollowTarget(this);
     }
