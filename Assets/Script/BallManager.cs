@@ -19,7 +19,6 @@ public class BallManager : MonoBehaviour
         players = GameObject.FindGameObjectsWithTag("Player");
         if (players.Length == 1)
             activePlayer = players[0];
-        print(players.Length);
         rb = GetComponent<Rigidbody>();
     }
 

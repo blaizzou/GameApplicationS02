@@ -36,8 +36,6 @@ public class BatCapsuleFollower : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        print(collision.collider.tag);
-
         if (collision.collider.tag == "projectile")
         {
 			if (transform.parent.GetComponent<PhotonView>().IsMine)
