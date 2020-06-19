@@ -2209,6 +2209,7 @@ GameObject:
   - component: {fileID: 4541579344586376951}
   - component: {fileID: 5885680611925162912}
   - component: {fileID: 1287256044768220808}
+  - component: {fileID: 2878435801262417099}
   m_Layer: 0
   m_Name: VRCamera
   m_TagString: MainCamera
@@ -2327,6 +2328,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821fd269f90dc4e4581fb798c4722134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &2878435801262417099
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541579344596613351}
+  m_Enabled: 1
 --- !u!1 &4541579344596619155
 GameObject:
   m_ObjectHideFlags: 0

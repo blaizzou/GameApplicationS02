@@ -13,6 +13,10 @@ public class BallManager : MonoBehaviour, IPunObservable
     private float lapseVeloCap = 0.2f;
     private float timerVeloCap = 0;
     private float looseVelo = 0.1f;
+    [SerializeField]
+    private AudioSource ballBounce;
+    [SerializeField]
+    private AudioSource ballHit;
 
     private Rigidbody rb;
     void Start()
@@ -22,6 +26,7 @@ public class BallManager : MonoBehaviour, IPunObservable
             activePlayer = players[0];
         print(players.Length);
         rb = GetComponent<Rigidbody>();
+
     }
 
     void Update()
@@ -85,6 +90,14 @@ public class BallManager : MonoBehaviour, IPunObservable
                 activePlayer = players[1];
 
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("BatFollower"))
+            ballHit.Play();
+        else
+            ballBounce.Play();
     }
 
 }

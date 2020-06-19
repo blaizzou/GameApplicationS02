@@ -10,6 +10,7 @@ TagManager:
   - PickUp
   - Bat
   - ShieldSpawn
+  - BatFollower
   layers:
   - Default
   - TransparentFX

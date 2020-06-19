@@ -334,7 +334,7 @@ PrefabInstance:
     - target: {fileID: 4541579344596627777, guid: cb1da5dd4046a164b8963d88cf929c40,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5201154254386214467, guid: cb1da5dd4046a164b8963d88cf929c40,
         type: 3}
@@ -981,7 +981,7 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: dd5b88e9702710140a0e0d7afdd99c1c, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -1056,6 +1056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1363556190}
   - component: {fileID: 1363556189}
+  - component: {fileID: 1363556191}
   m_Layer: 0
   m_Name: GameSetup
   m_TagString: Untagged
@@ -1092,6 +1093,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1363556191
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363556188}
+  m_Enabled: 0
 --- !u!1 &1417182562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,7 +1154,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
