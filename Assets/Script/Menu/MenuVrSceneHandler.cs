@@ -34,30 +34,43 @@ public class MenuVrSceneHandler : MonoBehaviour
         {
             Debug.Log("Button was clicked");
         }
-        
     }
 
     public void PointerInside(object sender, PointerEventArgs e)
     {
-        /*if (e.target.name == "training btn")
+           if (e.target.name == "training btn")
         {
-            Debug.Log("training btn was entered");
+            Debug.Log("training btn was clicked");
+        } else if (e.target.name == "multiplayer btn")
+        {
+            Debug.Log("multiplayer btn was clicked");
+        }
+        else if (e.target.name == "exit btn")
+        {
+            Debug.Log("exit btn was clicked");
         }
         else if (e.target.name == "Button")
         {
-            Debug.Log("Button was entered");
-        }*/
+            Debug.Log("Button was clicked");
+        }
     }
 
     public void PointerOutside(object sender, PointerEventArgs e)
     {
-        /*if (e.target.name == "Cube")
+           if (e.target.name == "training btn")
         {
-            Debug.Log("Cube was exited");
+            Debug.Log("training btn was clicked");
+        } else if (e.target.name == "multiplayer btn")
+        {
+            Debug.Log("multiplayer btn was clicked");
+        }
+        else if (e.target.name == "exit btn")
+        {
+            Debug.Log("exit btn was clicked");
         }
         else if (e.target.name == "Button")
         {
-            Debug.Log("Button was exited");
-        }*/
+            Debug.Log("Button was clicked");
+        }
     }
 }
