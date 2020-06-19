@@ -7,6 +7,7 @@ public class BallManager : MonoBehaviour, IPunObservable
 {
     public GameObject[] players;
     public GameObject activePlayer;
+    public ParticleSystem BallExplosion;
     public float maxVelo;
     private bool[] limited = { true, true };
 
@@ -79,6 +80,26 @@ public class BallManager : MonoBehaviour, IPunObservable
         rb.velocity = newVelo;
     }
 
+    bool IsVelocitySuperiorTo(float maxV)
+    {
+        if (rb.velocity.x > maxV)
+            return true;
+        else if (rb.velocity.x < -maxV)
+            return true;
+
+        if (rb.velocity.y > maxV)
+            return true;
+        else if (rb.velocity.y < -maxV)
+            return true;
+
+        if (rb.velocity.z > maxV)
+            return true;
+        else if (rb.velocity.z < -maxV)
+            return true;
+
+        return false;
+    }
+
     public void changeActivePlayer(Transform newPlayer)
     {
         timerVeloCap = lapseVeloCap;
@@ -98,6 +119,13 @@ public class BallManager : MonoBehaviour, IPunObservable
             ballHit.Play();
         else
             ballBounce.Play();
+
+        if (!collision.collider.CompareTag("LeftHand") && IsVelocitySuperiorTo(5.0f))
+        {
+            BallExplosion.Stop();
+            BallExplosion.Play();
+        }
+
     }
 
 }
