@@ -242,10 +242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   activePlayer: {fileID: 0}
-  BallExplosion: {fileID: 3589556587990586533}
+  contactAnim: {fileID: 3589556587990586533}
   maxVelo: 5
-  ballBounce: {fileID: 3044697976501023151}
-  ballHit: {fileID: 6837125641151458462}
 --- !u!114 &7657066672510160781
 MonoBehaviour:
   m_ObjectHideFlags: 0

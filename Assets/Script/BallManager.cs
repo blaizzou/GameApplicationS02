@@ -6,6 +6,7 @@ public class BallManager : MonoBehaviour
 {
     public GameObject[] players;
     public GameObject activePlayer;
+    public ParticleSystem contactAnim;
     public float maxVelo;
     private bool[] limited = { true, true };
 
@@ -20,6 +21,7 @@ public class BallManager : MonoBehaviour
         if (players.Length == 1)
             activePlayer = players[0];
         rb = GetComponent<Rigidbody>();
+        contactAnim.Stop();
     }
 
     void Update()
@@ -52,6 +54,24 @@ public class BallManager : MonoBehaviour
             newVelo.z += looseVelo;
 
         rb.velocity = newVelo;
+    }
+
+    bool isVeloSuperiorTo(float maxV)
+    {
+        if (rb.velocity.x > maxV || rb.velocity.x < -maxV)
+            return true;
+        if (rb.velocity.y > maxV || rb.velocity.y < -maxV)
+            return true;
+        if (rb.velocity.z > maxV || rb.velocity.z < -maxV)
+            return true;
+
+        return false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    { 
+        if (isVeloSuperiorTo(maxVelo - 1))
+            contactAnim.Play();
     }
 
     public void changeActivePlayer(Transform newPlayer)
