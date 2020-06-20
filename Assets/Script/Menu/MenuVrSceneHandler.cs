@@ -5,10 +5,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Valve.VR.Extras;
+using UnityEngine.SceneManagement;
 
 public class MenuVrSceneHandler : MonoBehaviour
 {
     public SteamVR_LaserPointer laserPointer;
+    public GameObject mainMenu;
+    public GameObject gameStart;
+    public LobbyController lobbyController;
+
+    public RoomController roomController;
+
+    public RoomInfos roomInfos;
 
     void Awake()
     {
@@ -21,18 +29,43 @@ public class MenuVrSceneHandler : MonoBehaviour
     {
         if (e.target.name == "training btn")
         {
-            Debug.Log("training btn was clicked");
+            SceneManager.LoadScene ("TargetPractice");
         } else if (e.target.name == "multiplayer btn")
         {
-            Debug.Log("multiplayer btn was clicked");
+            mainMenu.SetActive(false);
+            gameStart.SetActive(true);
         }
         else if (e.target.name == "exit btn")
         {
-            Debug.Log("exit btn was clicked");
+            Application.Quit();
         }
-        else if (e.target.name == "Button")
+        else if (e.target.name == "Enter")
         {
-            Debug.Log("Button was clicked");
+            lobbyController.JoinLobbyOnClick();
+        }
+        else if (e.target.name == "createBtn")
+        {
+            lobbyController.CreateRoom();
+        }
+        else if (e.target.name == "backBtn")
+        {
+            lobbyController.MatchMakingCancel();
+        }
+        else if (e.target.name == "startBtn")
+        {
+            roomController.startGame();
+        }
+        else if (e.target.name == "leaveBtn")
+        {
+            roomController.BackOnClick();
+        }
+        else if (e.target.name == "Ready btn")
+        {
+            roomInfos.readyOnClick();
+        }
+        else if (e.target.name == "not Ready btn")
+        {
+            roomInfos.cancelOnClick();
         }
     }
 
