@@ -1345,6 +1345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 4541579344585335741}
   handPhysics: {fileID: 4509207402261441527}
+  steamBehaviour: {fileID: 4509207352107347711}
 --- !u!114 &1385996565749529659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1756,6 +1757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 4541579344585286435}
   handPhysics: {fileID: 4509207351859059665}
+  steamBehaviour: {fileID: 4509207351449203581}
 --- !u!1 &4541579344596547863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,7 +2671,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39242100af0ed2d48b99e89575ad2a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiElement: {fileID: 0}
 --- !u!114 &1906599112687840299
 MonoBehaviour:
   m_ObjectHideFlags: 0

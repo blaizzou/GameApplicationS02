@@ -16,6 +16,10 @@ public class BallManager : MonoBehaviour
     private float lapseVeloCap = 0.2f;
     private float timerVeloCap = 0;
     private float looseVelo = 0.1f;
+    [SerializeField]
+    private AudioSource ballBounce;
+    [SerializeField]
+    private AudioSource ballHit;
 
     private Rigidbody rb;
     void Start()
@@ -80,6 +84,10 @@ public class BallManager : MonoBehaviour
             active = false;
             combo = 0;
         }
+        if (collision.gameObject.CompareTag("BatFollower"))
+            ballHit.Play();
+        else
+            ballBounce.Play();
     }
 
     public void changeActivePlayer(Transform newPlayer)
