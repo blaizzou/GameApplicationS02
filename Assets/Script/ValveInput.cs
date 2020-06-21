@@ -38,6 +38,7 @@ public class ValveInput : MonoBehaviour
     void AppearBall()
     {
         ball.transform.position = Lefthand.transform.position;
+        ball.GetComponent<BallManager>().resetCombo();
         ball.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         counter = 0;
     }

@@ -10,7 +10,6 @@ public class BallManager : MonoBehaviour
     public float maxVelo;
     private bool active = true;
 
-    private bool[] limited = { true, true };
     private int combo = 0;
 
     private float lapseVeloCap = 0.2f;
@@ -33,7 +32,6 @@ public class BallManager : MonoBehaviour
 
     void Update()
     {
-        print(rb.velocity);
         timerVeloCap -= Time.deltaTime;
         if (timerVeloCap < 0)
         {
@@ -76,7 +74,8 @@ public class BallManager : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
-    { 
+    {
+        print(collision.collider.tag);
         if (isVeloSuperiorTo(maxVelo - 1))
             contactAnim.Play();
         if (collision.collider.CompareTag("WallBack"))
@@ -112,6 +111,10 @@ public class BallManager : MonoBehaviour
     public int getCombo()
     {
         return combo;
+    }
+    public void resetCombo()
+    {
+        combo = 0;
     }
 
     public void increaseCombo()
