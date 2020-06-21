@@ -32,7 +32,7 @@ public class MenuVrSceneHandler : MonoBehaviour
     {
         if (e.target.name == "training btn")
         {
-            SceneManager.LoadScene ("TargetPractice");
+            SceneManager.LoadScene ("Hangar Practice");
         } else if (e.target.name == "multiplayer btn")
         {
             mainMenu.SetActive(false);
