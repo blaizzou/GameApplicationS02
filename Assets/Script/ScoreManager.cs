@@ -23,8 +23,6 @@ public class ScoreManager : MonoBehaviour
         {
             time -= Time.deltaTime;
             score.text = "Point : " + scoreValue + "\nRemaining Time : " + (int)time;
-
         }
-
     }
 }

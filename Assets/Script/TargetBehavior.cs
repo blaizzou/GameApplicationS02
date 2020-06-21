@@ -24,7 +24,7 @@ public class TargetBehavior : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Target");
         Destroy(target);
 
-        size *= 0.9f;
+        size *= 0.8f;
         position.x = Random.Range(-1.5f, 1.5f);
         position.z = Random.Range(-1f, 1f);
         position.y = Random.Range(-1f, 1f);
