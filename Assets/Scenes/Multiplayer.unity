@@ -1373,6 +1373,11 @@ PrefabInstance:
       propertyPath: text2
       value: 
       objectReference: {fileID: 5676952596280515823}
+    - target: {fileID: 6507352850161762508, guid: 88f86095e0abe4b4096e9aa4a925c074,
+        type: 3}
+      propertyPath: endgame
+      value: 
+      objectReference: {fileID: 1284228431}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f86095e0abe4b4096e9aa4a925c074, type: 3}
 --- !u!1 &1139947134
