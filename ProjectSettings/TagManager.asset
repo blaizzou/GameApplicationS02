@@ -10,7 +10,10 @@ TagManager:
   - PickUp
   - Bat
   - ShieldSpawn
-  - BatFollower
+  - Target
+  - BackWall
+  - Undefined
+  - Score
   layers:
   - Default
   - TransparentFX

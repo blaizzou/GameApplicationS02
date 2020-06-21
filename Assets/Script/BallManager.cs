@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
-public class BallManager : MonoBehaviour, IPunObservable
+public class BallManager : MonoBehaviour
 {
     public GameObject[] players;
     public GameObject activePlayer;
-    public ParticleSystem BallExplosion;
+    public ParticleSystem contactAnim;
     public float maxVelo;
+    private bool active = true;
+
     private bool[] limited = { true, true };
+    private int combo = 0;
 
     private float lapseVeloCap = 0.2f;
     private float timerVeloCap = 0;
@@ -25,38 +27,19 @@ public class BallManager : MonoBehaviour, IPunObservable
         players = GameObject.FindGameObjectsWithTag("Player");
         if (players.Length == 1)
             activePlayer = players[0];
-        print(players.Length);
         rb = GetComponent<Rigidbody>();
-
+        contactAnim.Stop();
     }
 
     void Update()
     {
+        print(rb.velocity);
         timerVeloCap -= Time.deltaTime;
         if (timerVeloCap < 0)
         {
             capVelocity();
         }
 
-    }
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(rb.position);
-            stream.SendNext(rb.rotation);
-            stream.SendNext(rb.velocity);
-        }
-        else
-        {
-            rb.position = (Vector3)stream.ReceiveNext();
-            rb.rotation = (Quaternion)stream.ReceiveNext();
-            rb.velocity = (Vector3)stream.ReceiveNext();
-
-            float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.timestamp));
-            rb.position += rb.velocity * lag;
-        }
     }
 
     void capVelocity()
@@ -80,28 +63,36 @@ public class BallManager : MonoBehaviour, IPunObservable
         rb.velocity = newVelo;
     }
 
-    bool IsVelocitySuperiorTo(float maxV)
+    bool isVeloSuperiorTo(float maxV)
     {
-        if (rb.velocity.x > maxV)
+        if (rb.velocity.x > maxV || rb.velocity.x < -maxV)
             return true;
-        else if (rb.velocity.x < -maxV)
+        if (rb.velocity.y > maxV || rb.velocity.y < -maxV)
             return true;
-
-        if (rb.velocity.y > maxV)
-            return true;
-        else if (rb.velocity.y < -maxV)
-            return true;
-
-        if (rb.velocity.z > maxV)
-            return true;
-        else if (rb.velocity.z < -maxV)
+        if (rb.velocity.z > maxV || rb.velocity.z < -maxV)
             return true;
 
         return false;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    { 
+        if (isVeloSuperiorTo(maxVelo - 1))
+            contactAnim.Play();
+        if (collision.collider.CompareTag("WallBack"))
+        {
+            active = false;
+            combo = 0;
+        }
+        if (collision.gameObject.CompareTag("BatFollower"))
+            ballHit.Play();
+        else
+            ballBounce.Play();
+    }
+
     public void changeActivePlayer(Transform newPlayer)
     {
+        active = true;
         timerVeloCap = lapseVeloCap;
         if (players.Length > 1)
         {
@@ -113,19 +104,18 @@ public class BallManager : MonoBehaviour, IPunObservable
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    public bool isActive()
     {
-        if (collision.gameObject.CompareTag("BatFollower"))
-            ballHit.Play();
-        else
-            ballBounce.Play();
-
-        if (!collision.collider.CompareTag("LeftHand") && IsVelocitySuperiorTo(5.0f))
-        {
-            BallExplosion.Stop();
-            BallExplosion.Play();
-        }
-
+        return active;
     }
 
+    public int getCombo()
+    {
+        return combo;
+    }
+
+    public void increaseCombo()
+    {
+        combo++;
+    }
 }

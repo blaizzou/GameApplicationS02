@@ -5,38 +5,33 @@ using UnityEngine;
 public class TargetBehavior : MonoBehaviour
 {
     private int score = 0;
-    private Vector3 dir = new Vector3(1, 0, 0);
+    private GameObject target;
+    private float size = 1;
+    private Vector3 position = new Vector3(0, 0, 0);
+    private Transform targetSpawn;
+    private Vector3 originPosition = new Vector3(0, 0, 0);
 
-    public ParticleSystem bluePortal;
+    public Transform targetOrigin;
+    public GameObject Target;
     void Start()
     {
-        
+        targetSpawn = targetOrigin;
+        originPosition = targetOrigin.position;
     }
 
-    void Update()
+    public void ReCreateTarget()
     {
-        if (score >= 3)
-            targetMovement();
-    }
+        target = GameObject.FindGameObjectWithTag("Target");
+        Destroy(target);
 
-    private void OnCollisionEnter(Collision collision)
-    {
+        size *= 0.9f;
+        position.x = Random.Range(-1.5f, 1.5f);
+        position.z = Random.Range(-1f, 1f);
+        position.y = Random.Range(-1f, 1f);
+        targetSpawn.position = originPosition + position;
 
-        if (collision.collider.CompareTag("projectile"))
-        {
-            ScoreManager.scoreValue += 1;
-            score++;
-            bluePortal.Stop();
-            bluePortal.Play();
-        }
+        GameObject newTarget = Instantiate(Target, targetSpawn.position, targetSpawn.rotation);
+        newTarget.transform.localScale *= size;
 
-    }
-
-    private void targetMovement()
-    {
-        if (transform.position.x <= -1.5 || transform.position.x >= 1.5)
-            dir = -dir;
-
-        transform.position = transform.position + (dir * Time.deltaTime);
     }
 }
