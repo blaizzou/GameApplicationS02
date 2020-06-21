@@ -25,11 +25,11 @@ public class Goal : MonoBehaviour
             UI.FadeIn();
             score++;
             StartCoroutine(waitForSec(1));
-            locked = false;
+            locked = true;
             StartCoroutine(waitForSec(4));
             text1.text = score+"";
             text2.text = score+"";
-            locked = true;
+            locked = false;
             if (score >= 5)
                 endgame.SetActive(true);
         }
