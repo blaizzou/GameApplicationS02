@@ -18,11 +18,15 @@ public class MenuVrSceneHandler : MonoBehaviour
 
     public RoomInfos roomInfos;
 
+    public Vector3 scaleChange;
+
     void Awake()
     {
         laserPointer.PointerIn += PointerInside;
         laserPointer.PointerOut += PointerOutside;
         laserPointer.PointerClick += PointerClick;
+
+        scaleChange = new Vector3(0.01f, 0.01f, 0);
     }
 
     public void PointerClick(object sender, PointerEventArgs e)
@@ -71,39 +75,87 @@ public class MenuVrSceneHandler : MonoBehaviour
 
     public void PointerInside(object sender, PointerEventArgs e)
     {
-           if (e.target.name == "training btn")
+       if (e.target.name == "training btn")
         {
-            Debug.Log("training btn was clicked");
+           e.target.localScale += scaleChange;
         } else if (e.target.name == "multiplayer btn")
         {
-            Debug.Log("multiplayer btn was clicked");
+            e.target.localScale += scaleChange;
         }
         else if (e.target.name == "exit btn")
         {
-            Debug.Log("exit btn was clicked");
+            e.target.localScale += scaleChange;
         }
-        else if (e.target.name == "Button")
+        else if (e.target.name == "Enter")
         {
-            Debug.Log("Button was clicked");
+            e.target.localScale += scaleChange;
+        }
+        else if (e.target.name == "createBtn")
+        {
+            e.target.localScale += scaleChange;
+        }
+        else if (e.target.name == "backBtn")
+        {
+            e.target.localScale += scaleChange;
+        }
+        else if (e.target.name == "startBtn")
+        {
+            e.target.localScale += scaleChange;
+        }
+        else if (e.target.name == "leaveBtn")
+        {
+            e.target.localScale += scaleChange;
+        }
+        else if (e.target.name == "Ready btn")
+        {
+           e.target.localScale += scaleChange;
+        }
+        else if (e.target.name == "not Ready btn")
+        {
+            e.target.localScale += scaleChange;
         }
     }
 
     public void PointerOutside(object sender, PointerEventArgs e)
     {
-           if (e.target.name == "training btn")
+        if (e.target.name == "training btn")
         {
-            Debug.Log("training btn was clicked");
+           e.target.localScale -= scaleChange;
         } else if (e.target.name == "multiplayer btn")
         {
-            Debug.Log("multiplayer btn was clicked");
+            e.target.localScale -= scaleChange;
         }
         else if (e.target.name == "exit btn")
         {
-            Debug.Log("exit btn was clicked");
+            e.target.localScale -= scaleChange;
         }
-        else if (e.target.name == "Button")
+        else if (e.target.name == "Enter")
         {
-            Debug.Log("Button was clicked");
+            e.target.localScale -= scaleChange;
+        }
+        else if (e.target.name == "createBtn")
+        {
+            e.target.localScale -= scaleChange;
+        }
+        else if (e.target.name == "backBtn")
+        {
+            e.target.localScale -= scaleChange;
+        }
+        else if (e.target.name == "startBtn")
+        {
+            e.target.localScale -= scaleChange;
+        }
+        else if (e.target.name == "leaveBtn")
+        {
+            e.target.localScale -= scaleChange;
+        }
+        else if (e.target.name == "Ready btn")
+        {
+           e.target.localScale -= scaleChange;
+        }
+        else if (e.target.name == "not Ready btn")
+        {
+            e.target.localScale -= scaleChange;
         }
     }
 }
