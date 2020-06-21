@@ -72,7 +72,12 @@ public class MenuVrSceneHandler : MonoBehaviour
         }
         else if (e.target.name == "roomButton(Clone)")
         {
-            roomButton.JoinRoomOnClick();
+            roomButton.JoinRoomOnClick(e.target.transform.GetChild(0).GetComponent<Text>().text);
+        }
+        else if (e.target.name == "backMenuBtn")
+        {
+            mainMenu.SetActive(true);
+            gameStart.SetActive(false);
         }
     }
 
@@ -121,6 +126,10 @@ public class MenuVrSceneHandler : MonoBehaviour
         {
             e.target.localScale += scaleChange;
         }
+        else if (e.target.name == "backMenuBtn")
+        {
+            e.target.localScale += scaleChange;
+        }
     }
 
     public void PointerOutside(object sender, PointerEventArgs e)
@@ -165,6 +174,10 @@ public class MenuVrSceneHandler : MonoBehaviour
             e.target.localScale -= scaleChange;
         }
         else if (e.target.name == "roomButton(Clone)")
+        {
+            e.target.localScale -= scaleChange;
+        }
+                else if (e.target.name == "backMenuBtn")
         {
             e.target.localScale -= scaleChange;
         }
