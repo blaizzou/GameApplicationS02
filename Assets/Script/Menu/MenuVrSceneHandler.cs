@@ -17,16 +17,15 @@ public class MenuVrSceneHandler : MonoBehaviour
     public RoomController roomController;
 
     public RoomInfos roomInfos;
+    public RoomButton roomButton;
 
-    public Vector3 scaleChange;
+    private Vector3 scaleChange = new Vector3(0.1f, 0.1f, 0f);
 
     void Awake()
     {
         laserPointer.PointerIn += PointerInside;
         laserPointer.PointerOut += PointerOutside;
         laserPointer.PointerClick += PointerClick;
-
-        scaleChange = new Vector3(0.01f, 0.01f, 0);
     }
 
     public void PointerClick(object sender, PointerEventArgs e)
@@ -71,6 +70,10 @@ public class MenuVrSceneHandler : MonoBehaviour
         {
             roomInfos.cancelOnClick();
         }
+        else if (e.target.name == "roomButton(Clone)")
+        {
+            roomButton.JoinRoomOnClick();
+        }
     }
 
     public void PointerInside(object sender, PointerEventArgs e)
@@ -114,6 +117,10 @@ public class MenuVrSceneHandler : MonoBehaviour
         {
             e.target.localScale += scaleChange;
         }
+        else if (e.target.name == "roomButton(Clone)")
+        {
+            e.target.localScale += scaleChange;
+        }
     }
 
     public void PointerOutside(object sender, PointerEventArgs e)
@@ -154,6 +161,10 @@ public class MenuVrSceneHandler : MonoBehaviour
            e.target.localScale -= scaleChange;
         }
         else if (e.target.name == "not Ready btn")
+        {
+            e.target.localScale -= scaleChange;
+        }
+        else if (e.target.name == "roomButton(Clone)")
         {
             e.target.localScale -= scaleChange;
         }
