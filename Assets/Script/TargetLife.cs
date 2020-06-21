@@ -7,14 +7,16 @@ public class TargetLife : MonoBehaviour
     private Vector3 dir = new Vector3(1, 0, 0);
 
     public ParticleSystem bluePortal;
+    public ParticleSystem greenPortal;
     public ParticleSystem yellowPortal;
     public ParticleSystem orangePortal;
     public ParticleSystem redPortal;
-    private int lifeTarget = 4;
+    private int lifeTarget = 5;
     private GameObject scoreMaster;
     private int score = 0;
     void Start()
     {
+        greenPortal.Stop();
         yellowPortal.Stop();
         orangePortal.Stop();
         redPortal.Stop();
@@ -37,19 +39,24 @@ public class TargetLife : MonoBehaviour
             if (score == 1)
             {
                 bluePortal.Stop();
+                greenPortal.Play();
+            }
+            if (score == 2)
+            {
+                greenPortal.Stop();
                 yellowPortal.Play();
             }
-            else if (score == 2)
+            else if (score == 3)
             {
                 yellowPortal.Stop();
                 orangePortal.Play();
             }
-            else if (score == 3)
+            else if (score == 4)
             {
                 orangePortal.Stop();
                 redPortal.Play();
             }
-            else if (score == 4)
+            else if (score == 5)
             {
                 redPortal.Stop();
                 bluePortal.Play();
