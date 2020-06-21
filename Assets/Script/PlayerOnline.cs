@@ -20,16 +20,16 @@ public class PlayerOnline : MonoBehaviour
 
     void Update()
     {
-        if (PV.IsMine)
-        {
-            float dist = Vector3.Distance(ball.position, transform.position);
-            if (dist < 3 && !mine)
-            {
-                ball.GetComponent<PhotonView>().RequestOwnership();
-                mine = true;
-            }
-            else
-                mine = false;
-        }
+        //if (PV.IsMine)
+        //{
+        //    float dist = Vector3.Distance(ball.position, transform.position);
+        //    if (dist < 3 && !mine)
+        //    {
+        //        ball.GetComponent<PhotonView>().RequestOwnership();
+        //        mine = true;
+        //    }
+        //    else if (mine && dist > 3)
+        //        mine = false;
+        //}
     }
 }
